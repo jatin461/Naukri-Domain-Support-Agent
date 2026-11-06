@@ -1,0 +1,186 @@
+{
+  "fixed": {
+    "in_scope": [
+      {
+        "query": "How many hours before an interview can I reschedule my slot?",
+        "top1_similarity": 0.7099,
+        "top1_doc_id": "interview_scheduling"
+      },
+      {
+        "query": "What is the notice period for an employee who is still in probation?",
+        "top1_similarity": 0.7917,
+        "top1_doc_id": "notice_period"
+      },
+      {
+        "query": "How much referral bonus is paid for a managerial role?",
+        "top1_similarity": 0.7948,
+        "top1_doc_id": "referral_bonus"
+      },
+      {
+        "query": "Who can apply for an internal transfer and how long must they have been in their role?",
+        "top1_similarity": 0.7725,
+        "top1_doc_id": "internal_transfer"
+      },
+      {
+        "query": "How long do you keep the data of rejected applicants?",
+        "top1_similarity": 0.7839,
+        "top1_doc_id": "applicant_data_retention"
+      },
+      {
+        "query": "Can a new joiner work from home during probation?",
+        "top1_similarity": 0.5527,
+        "top1_doc_id": "remote_work"
+      }
+    ],
+    "out_of_scope": [
+      {
+        "query": "What is the capital of France?",
+        "top1_similarity": 0.0852,
+        "top1_doc_id": "job_application_eligibility"
+      },
+      {
+        "query": "How do I bake a chocolate cake?",
+        "top1_similarity": 0.0458,
+        "top1_doc_id": "job_application_eligibility"
+      },
+      {
+        "query": "Who won the football world cup in 2018?",
+        "top1_similarity": 0.1152,
+        "top1_doc_id": "internal_transfer"
+      },
+      {
+        "query": "Which programming language is best for web scraping?",
+        "top1_similarity": 0.1235,
+        "top1_doc_id": "diversity_hiring"
+      }
+    ],
+    "in_scope_min": 0.5527,
+    "in_scope_max": 0.7948,
+    "out_of_scope_min": 0.0458,
+    "out_of_scope_max": 0.1235,
+    "gap": 0.4292,
+    "threshold": 0.338,
+    "held_out_in_scope": [
+      {
+        "query": "What happens if my background check shows a mismatch?",
+        "top1_similarity": 0.5453,
+        "top1_doc_id": "background_verification",
+        "passes": true
+      },
+      {
+        "query": "Is a bonus given for referring a friend to the company?",
+        "top1_similarity": 0.62,
+        "top1_doc_id": "referral_bonus",
+        "passes": true
+      }
+    ],
+    "held_out_out_of_scope": [
+      {
+        "query": "What is the weather in Mumbai today?",
+        "top1_similarity": 0.1001,
+        "top1_doc_id": "internal_transfer",
+        "passes": true
+      },
+      {
+        "query": "What is the company dress code for the office?",
+        "top1_similarity": 0.322,
+        "top1_doc_id": "remote_work",
+        "passes": true
+      }
+    ],
+    "closest_to_threshold_margin": 0.016,
+    "closest_to_threshold_query": "What is the company dress code for the office?"
+  },
+  "sentence": {
+    "in_scope": [
+      {
+        "query": "How many hours before an interview can I reschedule my slot?",
+        "top1_similarity": 0.6938,
+        "top1_doc_id": "interview_scheduling"
+      },
+      {
+        "query": "What is the notice period for an employee who is still in probation?",
+        "top1_similarity": 0.8533,
+        "top1_doc_id": "notice_period"
+      },
+      {
+        "query": "How much referral bonus is paid for a managerial role?",
+        "top1_similarity": 0.6964,
+        "top1_doc_id": "referral_bonus"
+      },
+      {
+        "query": "Who can apply for an internal transfer and how long must they have been in their role?",
+        "top1_similarity": 0.7961,
+        "top1_doc_id": "internal_transfer"
+      },
+      {
+        "query": "How long do you keep the data of rejected applicants?",
+        "top1_similarity": 0.7738,
+        "top1_doc_id": "applicant_data_retention"
+      },
+      {
+        "query": "Can a new joiner work from home during probation?",
+        "top1_similarity": 0.5569,
+        "top1_doc_id": "remote_work"
+      }
+    ],
+    "out_of_scope": [
+      {
+        "query": "What is the capital of France?",
+        "top1_similarity": 0.0238,
+        "top1_doc_id": "job_application_eligibility"
+      },
+      {
+        "query": "How do I bake a chocolate cake?",
+        "top1_similarity": 0.0767,
+        "top1_doc_id": "referral_bonus"
+      },
+      {
+        "query": "Who won the football world cup in 2018?",
+        "top1_similarity": 0.0809,
+        "top1_doc_id": "probation_period"
+      },
+      {
+        "query": "Which programming language is best for web scraping?",
+        "top1_similarity": 0.1509,
+        "top1_doc_id": "diversity_hiring"
+      }
+    ],
+    "in_scope_min": 0.5569,
+    "in_scope_max": 0.8533,
+    "out_of_scope_min": 0.0238,
+    "out_of_scope_max": 0.1509,
+    "gap": 0.406,
+    "threshold": 0.354,
+    "held_out_in_scope": [
+      {
+        "query": "What happens if my background check shows a mismatch?",
+        "top1_similarity": 0.4663,
+        "top1_doc_id": "background_verification",
+        "passes": true
+      },
+      {
+        "query": "Is a bonus given for referring a friend to the company?",
+        "top1_similarity": 0.6222,
+        "top1_doc_id": "referral_bonus",
+        "passes": true
+      }
+    ],
+    "held_out_out_of_scope": [
+      {
+        "query": "What is the weather in Mumbai today?",
+        "top1_similarity": 0.1125,
+        "top1_doc_id": "internal_transfer",
+        "passes": true
+      },
+      {
+        "query": "What is the company dress code for the office?",
+        "top1_similarity": 0.2521,
+        "top1_doc_id": "remote_work",
+        "passes": true
+      }
+    ],
+    "closest_to_threshold_margin": 0.1019,
+    "closest_to_threshold_query": "What is the company dress code for the office?"
+  }
+}

@@ -1,0 +1,482 @@
+[
+  {
+    "record_id": "APP-0001",
+    "category": "Product Manager",
+    "status": "Applied",
+    "expected_salary_inr": 1553556,
+    "days_since_created": 7,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0002",
+    "category": "HR Executive",
+    "status": "Interview Scheduled",
+    "expected_salary_inr": 2687433,
+    "days_since_created": 2,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0003",
+    "category": "Software Engineer",
+    "status": "Applied",
+    "expected_salary_inr": 1375850,
+    "days_since_created": 16,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0004",
+    "category": "Product Manager",
+    "status": "Offered",
+    "expected_salary_inr": 3341570,
+    "days_since_created": 17,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0005",
+    "category": "Data Analyst",
+    "status": "Screening",
+    "expected_salary_inr": 427257,
+    "days_since_created": 24,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0006",
+    "category": "HR Executive",
+    "status": "Screening",
+    "expected_salary_inr": 1052128,
+    "days_since_created": 6,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0007",
+    "category": "Data Analyst",
+    "status": "Applied",
+    "expected_salary_inr": 805657,
+    "days_since_created": 11,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0008",
+    "category": "Product Manager",
+    "status": "Rejected",
+    "expected_salary_inr": 3460716,
+    "days_since_created": 14,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0009",
+    "category": "Sales Associate",
+    "status": "Screening",
+    "expected_salary_inr": 2715426,
+    "days_since_created": 9,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0010",
+    "category": "Product Manager",
+    "status": "Rejected",
+    "expected_salary_inr": 2821590,
+    "days_since_created": 6,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0011",
+    "category": "Software Engineer",
+    "status": "Applied",
+    "expected_salary_inr": 1613781,
+    "days_since_created": 2,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0012",
+    "category": "Sales Associate",
+    "status": "Screening",
+    "expected_salary_inr": 2301740,
+    "days_since_created": 20,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0013",
+    "category": "Software Engineer",
+    "status": "Screening",
+    "expected_salary_inr": 3210918,
+    "days_since_created": 8,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0014",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 3063291,
+    "days_since_created": 5,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0015",
+    "category": "Software Engineer",
+    "status": "Screening",
+    "expected_salary_inr": 1532243,
+    "days_since_created": 29,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0016",
+    "category": "Product Manager",
+    "status": "Interview Scheduled",
+    "expected_salary_inr": 634620,
+    "days_since_created": 7,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0017",
+    "category": "Sales Associate",
+    "status": "Screening",
+    "expected_salary_inr": 677615,
+    "days_since_created": 6,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0018",
+    "category": "Product Manager",
+    "status": "Offered",
+    "expected_salary_inr": 1291820,
+    "days_since_created": 20,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0019",
+    "category": "Sales Associate",
+    "status": "Interview Scheduled",
+    "expected_salary_inr": 999246,
+    "days_since_created": 8,
+    "flagged_priority_review": true
+  },
+  {
+    "record_id": "APP-0020",
+    "category": "HR Executive",
+    "status": "Interview Scheduled",
+    "expected_salary_inr": 2851931,
+    "days_since_created": 13,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0021",
+    "category": "Data Analyst",
+    "status": "Applied",
+    "expected_salary_inr": 980205,
+    "days_since_created": 16,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0022",
+    "category": "HR Executive",
+    "status": "Rejected",
+    "expected_salary_inr": 1041062,
+    "days_since_created": 20,
+    "flagged_priority_review": true
+  },
+  {
+    "record_id": "APP-0023",
+    "category": "HR Executive",
+    "status": "Interview Scheduled",
+    "expected_salary_inr": 2013831,
+    "days_since_created": 12,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0024",
+    "category": "Data Analyst",
+    "status": "Screening",
+    "expected_salary_inr": 2720397,
+    "days_since_created": 27,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0025",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 2652216,
+    "days_since_created": 24,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0026",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 2223537,
+    "days_since_created": 5,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0027",
+    "category": "Sales Associate",
+    "status": "Rejected",
+    "expected_salary_inr": 1504733,
+    "days_since_created": 16,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0028",
+    "category": "Product Manager",
+    "status": "Applied",
+    "expected_salary_inr": 3022699,
+    "days_since_created": 9,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0029",
+    "category": "Product Manager",
+    "status": "Applied",
+    "expected_salary_inr": 1968308,
+    "days_since_created": 24,
+    "flagged_priority_review": true
+  },
+  {
+    "record_id": "APP-0030",
+    "category": "Sales Associate",
+    "status": "Rejected",
+    "expected_salary_inr": 402398,
+    "days_since_created": 19,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0031",
+    "category": "Software Engineer",
+    "status": "Rejected",
+    "expected_salary_inr": 1689807,
+    "days_since_created": 7,
+    "flagged_priority_review": true
+  },
+  {
+    "record_id": "APP-0032",
+    "category": "Sales Associate",
+    "status": "Rejected",
+    "expected_salary_inr": 759256,
+    "days_since_created": 23,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0033",
+    "category": "Software Engineer",
+    "status": "Offered",
+    "expected_salary_inr": 927477,
+    "days_since_created": 4,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0034",
+    "category": "Sales Associate",
+    "status": "Applied",
+    "expected_salary_inr": 2613224,
+    "days_since_created": 27,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0035",
+    "category": "Sales Associate",
+    "status": "Rejected",
+    "expected_salary_inr": 3461552,
+    "days_since_created": 22,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0036",
+    "category": "Data Analyst",
+    "status": "Rejected",
+    "expected_salary_inr": 3125786,
+    "days_since_created": 11,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0037",
+    "category": "Product Manager",
+    "status": "Applied",
+    "expected_salary_inr": 1342448,
+    "days_since_created": 2,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0038",
+    "category": "Product Manager",
+    "status": "Applied",
+    "expected_salary_inr": 1323658,
+    "days_since_created": 0,
+    "flagged_priority_review": true
+  },
+  {
+    "record_id": "APP-0039",
+    "category": "Product Manager",
+    "status": "Applied",
+    "expected_salary_inr": 531755,
+    "days_since_created": 27,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0040",
+    "category": "Product Manager",
+    "status": "Screening",
+    "expected_salary_inr": 2435975,
+    "days_since_created": 6,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0041",
+    "category": "HR Executive",
+    "status": "Rejected",
+    "expected_salary_inr": 2816806,
+    "days_since_created": 15,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0042",
+    "category": "Data Analyst",
+    "status": "Screening",
+    "expected_salary_inr": 795631,
+    "days_since_created": 3,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0043",
+    "category": "Data Analyst",
+    "status": "Screening",
+    "expected_salary_inr": 3457965,
+    "days_since_created": 1,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0044",
+    "category": "Sales Associate",
+    "status": "Applied",
+    "expected_salary_inr": 2088716,
+    "days_since_created": 23,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0045",
+    "category": "Sales Associate",
+    "status": "Applied",
+    "expected_salary_inr": 1197793,
+    "days_since_created": 17,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0046",
+    "category": "Data Analyst",
+    "status": "Screening",
+    "expected_salary_inr": 1447764,
+    "days_since_created": 27,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0047",
+    "category": "Data Analyst",
+    "status": "Rejected",
+    "expected_salary_inr": 2708231,
+    "days_since_created": 3,
+    "flagged_priority_review": true
+  },
+  {
+    "record_id": "APP-0048",
+    "category": "Sales Associate",
+    "status": "Rejected",
+    "expected_salary_inr": 791172,
+    "days_since_created": 29,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0049",
+    "category": "Software Engineer",
+    "status": "Screening",
+    "expected_salary_inr": 2418963,
+    "days_since_created": 6,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0050",
+    "category": "Sales Associate",
+    "status": "Applied",
+    "expected_salary_inr": 409040,
+    "days_since_created": 12,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0051",
+    "category": "HR Executive",
+    "status": "Screening",
+    "expected_salary_inr": 2174221,
+    "days_since_created": 22,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0052",
+    "category": "Sales Associate",
+    "status": "Interview Scheduled",
+    "expected_salary_inr": 3413222,
+    "days_since_created": 15,
+    "flagged_priority_review": true
+  },
+  {
+    "record_id": "APP-0053",
+    "category": "Data Analyst",
+    "status": "Rejected",
+    "expected_salary_inr": 2829258,
+    "days_since_created": 23,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0054",
+    "category": "HR Executive",
+    "status": "Applied",
+    "expected_salary_inr": 2850218,
+    "days_since_created": 15,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0055",
+    "category": "Sales Associate",
+    "status": "Applied",
+    "expected_salary_inr": 2529987,
+    "days_since_created": 2,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0056",
+    "category": "Software Engineer",
+    "status": "Applied",
+    "expected_salary_inr": 1386516,
+    "days_since_created": 12,
+    "flagged_priority_review": true
+  },
+  {
+    "record_id": "APP-0057",
+    "category": "Sales Associate",
+    "status": "Applied",
+    "expected_salary_inr": 2893594,
+    "days_since_created": 1,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0058",
+    "category": "Data Analyst",
+    "status": "Interview Scheduled",
+    "expected_salary_inr": 2592709,
+    "days_since_created": 10,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0059",
+    "category": "Software Engineer",
+    "status": "Offered",
+    "expected_salary_inr": 1401121,
+    "days_since_created": 8,
+    "flagged_priority_review": false
+  },
+  {
+    "record_id": "APP-0060",
+    "category": "HR Executive",
+    "status": "Screening",
+    "expected_salary_inr": 1726143,
+    "days_since_created": 29,
+    "flagged_priority_review": false
+  }
+]

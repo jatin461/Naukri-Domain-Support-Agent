@@ -1,0 +1,16 @@
+seed=42 records=60
+flag_probability=0.18 salary_range_inr=400000-3500000
+category counts:
+  Software Engineer: 9
+  Data Analyst: 11
+  Product Manager: 12
+  HR Executive: 12
+  Sales Associate: 16
+status counts:
+  Applied: 21
+  Screening: 15
+  Interview Scheduled: 7
+  Offered: 4
+  Rejected: 13
+flagged_priority_review: 8/60 = 13.33%
+validation: OK

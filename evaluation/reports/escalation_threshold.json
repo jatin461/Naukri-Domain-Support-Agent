@@ -1,0 +1,119 @@
+{
+  "formula": "0.60 * flagged_priority_review + 0.40 * (1 - days_since_created / 30)",
+  "threshold": 0.33,
+  "records": 60,
+  "days_percentiles": {
+    "p20": 5.8,
+    "p50": 12.0,
+    "p80": 23.0
+  },
+  "score_min": 0.0133,
+  "score_max": 1.0,
+  "flagged_score_min": 0.68,
+  "unflagged_score_max": 0.3867,
+  "escalated": 18,
+  "escalated_flagged": 8,
+  "escalated_unflagged_recent": 10,
+  "unflagged_escalate_up_to_days": 5,
+  "unflagged_total_with_days_below_p20": 10,
+  "regions": [
+    {
+      "days": 0,
+      "unflagged_score": 0.4,
+      "flagged_score": 1.0,
+      "unflagged_escalates": true,
+      "flagged_escalates": true
+    },
+    {
+      "days": 1,
+      "unflagged_score": 0.3867,
+      "flagged_score": 0.9867,
+      "unflagged_escalates": true,
+      "flagged_escalates": true
+    },
+    {
+      "days": 2,
+      "unflagged_score": 0.3733,
+      "flagged_score": 0.9733,
+      "unflagged_escalates": true,
+      "flagged_escalates": true
+    },
+    {
+      "days": 3,
+      "unflagged_score": 0.36,
+      "flagged_score": 0.96,
+      "unflagged_escalates": true,
+      "flagged_escalates": true
+    },
+    {
+      "days": 4,
+      "unflagged_score": 0.3467,
+      "flagged_score": 0.9467,
+      "unflagged_escalates": true,
+      "flagged_escalates": true
+    },
+    {
+      "days": 5,
+      "unflagged_score": 0.3333,
+      "flagged_score": 0.9333,
+      "unflagged_escalates": true,
+      "flagged_escalates": true
+    },
+    {
+      "days": 6,
+      "unflagged_score": 0.32,
+      "flagged_score": 0.92,
+      "unflagged_escalates": false,
+      "flagged_escalates": true
+    },
+    {
+      "days": 7,
+      "unflagged_score": 0.3067,
+      "flagged_score": 0.9067,
+      "unflagged_escalates": false,
+      "flagged_escalates": true
+    },
+    {
+      "days": 10,
+      "unflagged_score": 0.2667,
+      "flagged_score": 0.8667,
+      "unflagged_escalates": false,
+      "flagged_escalates": true
+    },
+    {
+      "days": 15,
+      "unflagged_score": 0.2,
+      "flagged_score": 0.8,
+      "unflagged_escalates": false,
+      "flagged_escalates": true
+    },
+    {
+      "days": 20,
+      "unflagged_score": 0.1333,
+      "flagged_score": 0.7333,
+      "unflagged_escalates": false,
+      "flagged_escalates": true
+    },
+    {
+      "days": 23,
+      "unflagged_score": 0.0933,
+      "flagged_score": 0.6933,
+      "unflagged_escalates": false,
+      "flagged_escalates": true
+    },
+    {
+      "days": 25,
+      "unflagged_score": 0.0667,
+      "flagged_score": 0.6667,
+      "unflagged_escalates": false,
+      "flagged_escalates": true
+    },
+    {
+      "days": 30,
+      "unflagged_score": 0.0,
+      "flagged_score": 0.6,
+      "unflagged_escalates": false,
+      "flagged_escalates": true
+    }
+  ]
+}

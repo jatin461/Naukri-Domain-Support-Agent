@@ -1,0 +1,13 @@
+# Python 3.11.x. Direct dependencies, exact pins; the full resolved set (165 packages) is frozen in requirements.lock.
+crewai==1.15.33
+autogen-agentchat==0.7.5   # must stay pinned: unpinned resolves to the legacy 0.2.x line
+autogen-core==0.7.5
+langchain-core==1.7.3
+pydantic==2.12.5
+fastapi==0.162.0
+uvicorn==0.54.0
+httpx==0.28.1
+chromadb==1.5.9
+sentence-transformers==6.2.0
+pytest==9.2.0
+websockets==17.4          # WebSocket support for the uvicorn server (tests use TestClient and do not need it)

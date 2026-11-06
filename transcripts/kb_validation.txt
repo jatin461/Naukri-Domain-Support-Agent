@@ -1,0 +1,15 @@
+documents: 12 (sentence range required: 2-5)
+topic -> doc_id (sentences):
+  Job-application eligibility criteria -> job_application_eligibility (4)
+  Interview-scheduling process -> interview_scheduling (4)
+  Offer-negotiation policy -> offer_negotiation (4)
+  Background-verification process -> background_verification (4)
+  Notice-period policy -> notice_period (4)
+  Referral-bonus policy -> referral_bonus (4)
+  Internal-transfer eligibility -> internal_transfer (4)
+  Probation-period policy -> probation_period (4)
+  Remote-work eligibility -> remote_work (4)
+  Diversity-hiring guidelines -> diversity_hiring (4)
+  Exit-interview process -> exit_interview (4)
+  Applicant-data-retention policy -> applicant_data_retention (4)
+validation: OK

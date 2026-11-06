@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------
+# Python / virtual environments
+# ---------------------------------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---------------------------------------------------------------
+# Secrets / local config (only .env.example is committed)
+# ---------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# ---------------------------------------------------------------
+# Generated runtime state (rebuilt by scripts/build_index and the API)
+# ---------------------------------------------------------------
+chroma_db/
+logs/requests.jsonl
+.acceptance/
+
+# ---------------------------------------------------------------
+# Streamlit UI test bench - local manual-testing layer only,
+# NOT part of the capstone submission (not required by the brief)
+# ---------------------------------------------------------------
+ui_testbench/
+.streamlit/
+streamlit_app.py
+
+# ---------------------------------------------------------------
+# Not-required working files (local hand-off notes / prompts)
+# ---------------------------------------------------------------
+handoff/
+ANALYSIS_REPORT.md
+
+# ---------------------------------------------------------------
+# OS / editor noise
+# ---------------------------------------------------------------
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.log
+.ipynb_checkpoints/
