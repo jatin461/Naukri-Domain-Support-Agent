@@ -132,7 +132,7 @@ def test_readme_governance_scope_and_cache_claims():
     s = section(8)
     for layer in ("Data layer", "Model layer", "Application layer", "Runtime layer"):
         assert f"**{layer}" in s, layer
-    assert "**Risk classification: Medium.**" in s and len(re.findall(r"\*\*Risk classification: (Low|Medium|High)\.", s)) == 1
+    assert "**Risk classification: High.**" in s and "financial data" in s and len(re.findall(r"\*\*Risk classification: (Low|Medium|High)\.", s)) == 1
     assert "does not match paraphrases" in s and "no semantic-match claim" in s
     assert "nothing is charged" in s and "AutonomyViolation" in s
 

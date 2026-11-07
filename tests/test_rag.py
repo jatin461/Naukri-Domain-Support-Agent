@@ -225,6 +225,32 @@ def test_five_in_scope_grounded(built):
             assert set(re.findall(r"[a-z0-9]+", r.answer.lower())) <= context_words | {"based", "on"}
 
 
+@pytest.mark.ac("P1-13")
+def test_answer_never_glues_separate_pieces_into_one_sentence(built, docs):
+    # Every segment between separators must be one unbroken passage of a single retrieved document,
+    # so two windows that are not adjacent in the knowledge base can never read as one sentence.
+    doc_text = {d.doc_id: " ".join(d.text.split()) for d in docs}
+    queries = [q["query"] for q in Q.IN_SCOPE] + ["How long do you keep the data of rejected applicants?",
+                                                   "Can a new joiner work from home during probation?"]
+    for s, col in _cols(built).items():
+        thr = settings.get_similarity_threshold(s)
+        for query in queries:
+            r = generate_grounded_answer(query, col, thr)
+            body = r.answer.split(": ", 1)[1]
+            segments = [seg.strip() for seg in body.split("…") if seg.strip()]
+            assert segments
+            for seg in segments:
+                assert any(seg in doc_text[d] for d in r.source_doc_ids), (s, query, seg)
+
+
+def test_join_pieces_marks_breaks_and_adds_no_words():
+    from src.llm.mock_llm import join_pieces
+
+    assert join_pieces(["One. Two."]) == "One. Two."
+    assert join_pieces(["the end of one.", "Start of another"]) == "… the end of one. … Start of another …"
+    assert re.findall(r"[a-z]+", join_pieces(["a b.", "c d"]).lower()) == ["a", "b", "c", "d"]
+
+
 @pytest.mark.ac("P1-14")
 def test_out_of_scope_fallback(built):
     for s, col in _cols(built).items():

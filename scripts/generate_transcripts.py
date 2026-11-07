@@ -292,7 +292,7 @@ def phase7():
         finally:
             MockLLM._compose = orig
         L += block("Demo 2: draft with an injected ungrounded claim is revised", q1 + "  (the Composer draft was tampered with to append: \"" + injected + "\")", r2, core)
-        L += [f"- groundedness guard on the tampered draft: {r2.groundedness['action']} (flagged and passed to the review team, decision D5)", "",
+        L += [f"- groundedness guard on the tampered draft: {r2.groundedness['action']} (flagged and passed to the review team)", "",
               "## Negative check: structured message type must be registered", ""]
         reviewer, editor = build_agents(MockAutoGenClient(MockLLM()))
         try:
@@ -320,7 +320,7 @@ def phase8():
     rag, lookup = RagLookupTool(search_fn=lambda q: None), CheckJobApplicationStatusTool()
     agents = build_agents(llm, rag, lookup)
     L = ["# Least autonomy: only the Lookup Agent may call `check_job_application_status`", "",
-         "Enforced by `src/governance/autonomy.py`: an allow-list of tools per agent role, checked by `build_agents` before each agent is constructed. See `src/governance/risk_assessment.md` for the explanation and the Medium risk classification.", "",
+         "Enforced by `src/governance/autonomy.py`: an allow-list of tools per agent role, checked by `build_agents` before each agent is constructed. See `src/governance/risk_assessment.md` for the explanation and the High risk classification.", "",
          "## Tool wiring of the crew (inspected from the constructed agents)", ""]
     for role, tools in tool_wiring(agents).items():
         L.append(f"- {role}: {tools or 'no tools'}")

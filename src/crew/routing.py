@@ -1,4 +1,4 @@
-"""Deterministic request routing (decision D6) shared by the session resolver and the crew builder.
+"""Deterministic request routing shared by the session resolver and the crew builder.
 
 The policy keywords are the stems of the 12 knowledge-base topic names (a test checks every topic is covered).
 Heuristics (documented limits): a request goes to the Lookup Agent when it contains a well-formed

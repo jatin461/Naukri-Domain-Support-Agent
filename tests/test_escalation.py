@@ -74,7 +74,7 @@ def test_both_components_change_outcome():
     assert flag_driven and recency_driven
     # a bare boolean would escalate exactly the flagged records
     assert {r["record_id"] for r, s in scored if escalation_recommended(s)} != {r["record_id"] for r in JOB_APPLICATIONS if r["flagged_priority_review"]}
-    assert not 0.40 < ESCALATION_THRESHOLD <= 0.60  # degenerate region (decision D3)
+    assert not 0.40 < ESCALATION_THRESHOLD <= 0.60  # degenerate region
 
 
 def test_percentile_matches_numpy():

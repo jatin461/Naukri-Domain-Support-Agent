@@ -4,8 +4,8 @@ escalation_score = FLAG_WEIGHT * flagged_priority_review + RECENCY_WEIGHT * (1 -
 
 - flag component (0.60): a record marked for priority review is always worth a human look; on its
   own it contributes more than the whole recency component can.
-- recency component (0.40): newer applications score higher (a fresh application is the one
-  waiting longest for a first response); it falls linearly from 0.40 (created today) to 0 (30 days).
+- recency component (0.40): newer applications score higher (a new application is still inside
+  its first-response window; an older one has already been through recruiter triage); it falls linearly from 0.40 (created today) to 0 (30 days).
 Both components lie in [0, 1] before weighting and the weights sum to 1, so the score is in [0, 1].
 An application is recommended for escalation to a human when score >= ESCALATION_THRESHOLD.
 The threshold's justification (computed percentiles) is in evaluation/reports/escalation_threshold.md.

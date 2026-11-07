@@ -1,9 +1,10 @@
 """Input-side guardrails: request validation, phone masking and prompt-injection detection.
 
-Phone masking scope (design choice D2): the fixed-format phone number of the contact details,
+Phone masking scope: the fixed-format phone number of the contact details,
 canonically `+91-NNNNN-NNNNN` in a `Contact: ...` line. Variants `+91 NNNNN NNNNN`, `+91NNNNNNNNNN`,
-`NNNNN-NNNNN`, `NNNNN NNNNN` and ten contiguous digits are masked wherever they occur (so any
-unrelated ten-digit number is masked too). Candidate names, expected salary and background-check
+`NNNNN-NNNNN`, `NNNNN NNNNN` and ten contiguous digits are masked wherever they stand as their own token
+(so any unrelated ten-digit number is masked too). A digit run glued to letters or other digits, such as
+the inside of a hex trace ID like `af9876543210ab`, is not a phone number and is left intact. Candidate names, expected salary and background-check
 results are NOT masked: out of scope for this keyless pattern-based masker.
 
 Injection detection scope and limits: a small deterministic list of regular expressions for common
@@ -20,7 +21,7 @@ from src.cache.grounded_cache import normalize_query
 from src.config import settings
 
 PHONE_MASK = "[PHONE_MASKED]"
-_PHONE = re.compile(r"(?<!\d)(?:\+91[\s-]?)?\d{5}[\s-]?\d{5}(?!\d)")
+_PHONE = re.compile(r"(?<![A-Za-z0-9_])(?:\+91[\s-]?)?\d{5}[\s-]?\d{5}(?![A-Za-z0-9_])")
 
 
 def mask_phone(text):
@@ -47,6 +48,9 @@ _INJECTION_PATTERNS = {
     "mode_switch": r"\b(developer|debug|god|admin) mode\b",
     "disable_safety": r"\b(disable|turn off|bypass|remove)\b.{0,20}\b(safety|guardrails?|filters?|restrictions?)\b",
     "delimiter_injection": r"(</?\s*system\s*>|\[/?INST\]|^\s*#{2,}\s*system\b|^\s*system\s*:)",
+    "forget_everything_told": r"\b(forget|ignore|disregard|discard)\b\s+(everything|all|anything)\s+(that\s+)?(you\s+(were|have been|'ve been)|you've been)\s+(told|given|taught)\b",
+    "hidden_instructions": r"\byour\s+(hidden|secret|confidential|underlying|system)\s+(instructions?|prompts?|rules?|directives?|programming)\b",
+    "new_instructions_block": r"(^|[.!?\n]\s*)(new|updated|revised|real)\s+(instructions?|rules?|system prompt|task)\s*:",
 }
 _COMPILED = {k: re.compile(v, re.IGNORECASE | re.DOTALL | re.MULTILINE) for k, v in _INJECTION_PATTERNS.items()}
 

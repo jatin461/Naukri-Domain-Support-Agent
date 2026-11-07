@@ -243,7 +243,7 @@ Choose and document a formula combining the priority flag and normalized recency
 
 `score = 0.60 * int(flagged_priority_review) + 0.40 * (1 - days_since_created / 30)`
 
-Validate that the result is always between 0 and 1. Calculate the actual dataset's `days_since_created` 80th percentile and explain the recommended escalation threshold. Do not hardcode a claimed percentile without calculating it.
+Validate that the result is always between 0 and 1. Calculate the actual dataset's `days_since_created` percentiles (P20, P50, P80) and justify the recommended escalation threshold from them. Do not hardcode a claimed percentile without calculating it.
 
 Test:
 - known record;
@@ -616,7 +616,7 @@ For each phase in this plan:
 3. Run the phase tests.
 4. Map the test results to acceptance criteria.
 5. Review the diff and evidence.
-6. Commit the phase before moving to the next one.
+6. Confirm the phase tests pass before moving to the next one.
 
 ### Final step — Full acceptance audit
 

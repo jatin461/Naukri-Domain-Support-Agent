@@ -96,6 +96,24 @@ def merge_overlapping(texts):
     return [" ".join(p) for p in parts]
 
 
+PIECE_SEPARATOR = " … "
+
+
+def join_pieces(pieces):
+    """Join retrieved text pieces that are not contiguous in the knowledge base.
+
+    Pieces are separated, never glued together, so two unrelated windows can never read as one
+    sentence. A piece that starts or ends mid-sentence is marked with an ellipsis. Only punctuation
+    is added: every word of the answer still comes from the retrieved chunks.
+    """
+    body = PIECE_SEPARATOR.join(pieces)
+    if body and not body[0].isupper():
+        body = "… " + body
+    if body and body[-1] not in ".!?":
+        body += " …"
+    return body
+
+
 def question_text(task_text):
     m = _QUESTION.search(task_text)
     return (m.group(1) if m else task_text).strip()
@@ -156,8 +174,8 @@ class MockLLM:
         prompt = _text(msgs[-1]["content"])
         pairs = _CHUNK_LINE.findall(prompt)
         titles = list(dict.fromkeys(t for t, _ in pairs))
-        body = " ".join(x for title in titles for x in merge_overlapping([x for t, x in pairs if t == title]))
-        return f"Based on {', '.join(titles)}: {body}"
+        pieces = [x for title in titles for x in merge_overlapping([x for t, x in pairs if t == title])]
+        return f"Based on {', '.join(titles)}: {join_pieces(pieces)}"
 
     # ---- AutoGen review team ----
     @staticmethod

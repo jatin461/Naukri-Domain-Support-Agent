@@ -10,7 +10,7 @@
 
 ## Input: prompt-injection detection (deterministic regex list; see limits in `src/guardrails/input_guardrails.py`)
 
-- status: rejected; reason: prompt_injection; matched: ['ignore_previous_instructions', 'reveal_system_prompt']
+- status: rejected; reason: prompt_injection; matched: ['ignore_previous_instructions', 'reveal_system_prompt', 'hidden_instructions']
 - model calls caused by this request: 0
 - answer: This request was blocked because it looks like an attempt to override the assistant's instructions.
 

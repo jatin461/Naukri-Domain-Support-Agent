@@ -1,7 +1,7 @@
 # Escalation score and threshold
 
 Formula: `escalation_score = 0.60 * flagged_priority_review + 0.40 * (1 - days_since_created / 30)`; recommended escalation when score >= **0.33**.
-Newer applications score higher (they have waited longest for a first response); the priority flag adds a fixed 0.60.
+Newer applications score higher (they are still inside their first-response window, while older ones have already been through recruiter triage); the priority flag adds a fixed 0.60.
 
 Computed from the generated dataset (60 records, seed 42):
 

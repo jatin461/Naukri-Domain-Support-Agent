@@ -593,86 +593,86 @@ The project is complete only when the following are demonstrably satisfied.
 
 ### Part 1 — 30 marks
 
-- [ ] `dataset.py` deterministically generates at least 40 records.
-- [ ] Every required category appears at least 3 times.
-- [ ] Every required status appears at least once.
-- [ ] Priority-flagged percentage is between 10% and 30%, without hand-editing records.
-- [ ] Required dataset fields and salary rationale are documented.
-- [ ] At least 12 project-authored knowledge-base documents exist, each 2–5 sentences.
-- [ ] All 12 exact required policy topics are covered.
-- [ ] Fixed-size-with-overlap chunking is implemented.
-- [ ] Sentence-based chunking is implemented.
-- [ ] Both chunk sets are embedded with local SentenceTransformers.
-- [ ] Each strategy has its own ChromaDB collection and uses `collection.upsert()`.
-- [ ] Similarity threshold is empirically calibrated using at least 3 in-scope and 2 out-of-scope queries.
-- [ ] At least 5 in-scope RAG demonstrations return grounded answers.
-- [ ] At least 1 out-of-scope query triggers the fallback.
-- [ ] Document-level precision and recall are calculated for both collections on the same minimum 5 queries.
-- [ ] Per-query arithmetic is visible for both strategies.
-- [ ] A 2–3 sentence, numbers-cited chunking recommendation is included.
+- [x] `dataset.py` deterministically generates at least 40 records.
+- [x] Every required category appears at least 3 times.
+- [x] Every required status appears at least once.
+- [x] Priority-flagged percentage is between 10% and 30%, without hand-editing records.
+- [x] Required dataset fields and salary rationale are documented.
+- [x] At least 12 project-authored knowledge-base documents exist, each 2–5 sentences.
+- [x] All 12 exact required policy topics are covered.
+- [x] Fixed-size-with-overlap chunking is implemented.
+- [x] Sentence-based chunking is implemented.
+- [x] Both chunk sets are embedded with local SentenceTransformers.
+- [x] Each strategy has its own ChromaDB collection and uses `collection.upsert()`.
+- [x] Similarity threshold is empirically calibrated using at least 3 in-scope and 2 out-of-scope queries.
+- [x] At least 5 in-scope RAG demonstrations return grounded answers.
+- [x] At least 1 out-of-scope query triggers the fallback.
+- [x] Document-level precision and recall are calculated for both collections on the same minimum 5 queries.
+- [x] Per-query arithmetic is visible for both strategies.
+- [x] A 2–3 sentence, numbers-cited chunking recommendation is included.
 
 ### Part 2 — 30 marks
 
-- [ ] `check_job_application_status(record_id: str) -> dict` returns status, expected salary and a designed escalation score in `[0,1]`.
-- [ ] Score combines priority flag and normalized recency.
-- [ ] Formula and dataset-justified escalation threshold are documented.
-- [ ] CrewAI crew has at least 3 agents: Retrieval, Lookup and Composer.
-- [ ] Crew executes through `.kickoff()`.
-- [ ] RAG tool invocation is demonstrated.
-- [ ] Lookup tool invocation is demonstrated on a different sample query.
-- [ ] CrewAI mock LLM extends `crewai.llms.base_llm.BaseLLM`.
-- [ ] ReAct `Observation:` parsing pitfall is avoided by parsing generated model text rather than the system prompt.
-- [ ] Tool dispatch uses declared argument schema rather than tool-name substring matching.
-- [ ] CrewAI telemetry is disabled before execution and documented.
-- [ ] Multi-turn in-process memory is demonstrated.
-- [ ] A separate fresh session demonstrates reset/absence of prior state.
-- [ ] Every crew response validates against a Pydantic schema.
-- [ ] Fixed-format phone PII masking is demonstrated.
-- [ ] Prompt-injection guardrail is demonstrated.
-- [ ] Output groundedness refusal is demonstrated.
+- [x] `check_job_application_status(record_id: str) -> dict` returns status, expected salary and a designed escalation score in `[0,1]`.
+- [x] Score combines priority flag and normalized recency.
+- [x] Formula and dataset-justified escalation threshold are documented.
+- [x] CrewAI crew has at least 3 agents: Retrieval, Lookup and Composer.
+- [x] Crew executes through `.kickoff()`.
+- [x] RAG tool invocation is demonstrated.
+- [x] Lookup tool invocation is demonstrated on a different sample query.
+- [x] CrewAI mock LLM extends `crewai.llms.base_llm.BaseLLM`.
+- [x] ReAct `Observation:` parsing pitfall is avoided by parsing generated model text rather than the system prompt.
+- [x] Tool dispatch uses declared argument schema rather than tool-name substring matching.
+- [x] CrewAI telemetry is disabled before execution and documented.
+- [x] Multi-turn in-process memory is demonstrated.
+- [x] A separate fresh session demonstrates reset/absence of prior state.
+- [x] Every crew response validates against a Pydantic schema.
+- [x] Fixed-format phone PII masking is demonstrated.
+- [x] Prompt-injection guardrail is demonstrated.
+- [x] Output groundedness refusal is demonstrated.
 
 ### Part 3 — 20 marks
 
-- [ ] At least two working FastAPI HTTP endpoints exist.
-- [ ] One working FastAPI WebSocket endpoint supports multi-turn chat.
-- [ ] WebSocket disconnect is caught and does not crash the server.
-- [ ] Applicable HTTP request/response payloads use Pydantic models.
-- [ ] Every request creates one JSON-Lines log entry with trace ID and timing.
-- [ ] Raw fixed-format phone PII never reaches the log file.
-- [ ] A 15-query evaluation set covers all 12 KB topics and at least 2 out-of-scope/edge cases.
-- [ ] Accuracy, Grounding, Completeness and Safety are reported for every query.
-- [ ] The average of each of the four scores is reported across all 15 queries.
-- [ ] Evaluation and judge run under `MOCK_LLM`.
-- [ ] WebSocket handles concurrent connections with async patterns, and multi-turn memory is isolated per connection/session ID (shown by a test with interleaved concurrent clients).
+- [x] At least two working FastAPI HTTP endpoints exist.
+- [x] One working FastAPI WebSocket endpoint supports multi-turn chat.
+- [x] WebSocket disconnect is caught and does not crash the server.
+- [x] Applicable HTTP request/response payloads use Pydantic models.
+- [x] Every request creates one JSON-Lines log entry with trace ID and timing.
+- [x] Raw fixed-format phone PII never reaches the log file.
+- [x] A 15-query evaluation set covers all 12 KB topics and at least 2 out-of-scope/edge cases.
+- [x] Accuracy, Grounding, Completeness and Safety are reported for every query.
+- [x] The average of each of the four scores is reported across all 15 queries.
+- [x] Evaluation and judge run under `MOCK_LLM`.
+- [x] WebSocket handles concurrent connections with async patterns, and multi-turn memory is isolated per connection/session ID (shown by a test with interleaved concurrent clients).
 
 ### Part 4 — 20 marks
 
-- [ ] AutoGen review team has exactly the required two reviewer/editor roles.
-- [ ] Round-robin orchestration is bounded with `max_turns=2`, or the correctly configured alternative termination condition.
-- [ ] Final-Editor uses `output_content_type=<YourVerdictModel>`.
-- [ ] Team registers `custom_message_types=[StructuredMessage[YourVerdictModel]]`.
-- [ ] Review receives CrewAI draft and original retrieved context.
-- [ ] Pydantic verdict includes `approved`, `final_answer`, and `reason`.
-- [ ] One demonstration approves unchanged.
-- [ ] One demonstration revises an intentionally ungrounded draft.
-- [ ] Only Lookup Agent is wired to `check_job_application_status`.
-- [ ] Least-autonomy restriction is demonstrated and explained.
-- [ ] Risk level is classified using the supplied Low/Medium/High scheme and justified without invented capabilities.
-- [ ] Per-request token/cost budget cap is enforced.
-- [ ] Oversized request is rejected and the rejection is demonstrated.
-- [ ] Grounded-generation cache is keyed by normalized query text.
-- [ ] Repeated query demonstrates a cache hit and avoided redundant grounded-generation LLM/tool call with evidence.
-- [ ] Cache-key normalization strips leading/trailing whitespace and punctuation and lower-cases, variants of one query share an entry, and no semantic-match claim is made.
+- [x] AutoGen review team has exactly the required two reviewer/editor roles.
+- [x] Round-robin orchestration is bounded with `max_turns=2`, or the correctly configured alternative termination condition.
+- [x] Final-Editor uses `output_content_type=<YourVerdictModel>`.
+- [x] Team registers `custom_message_types=[StructuredMessage[YourVerdictModel]]`.
+- [x] Review receives CrewAI draft and original retrieved context.
+- [x] Pydantic verdict includes `approved`, `final_answer`, and `reason`.
+- [x] One demonstration approves unchanged.
+- [x] One demonstration revises an intentionally ungrounded draft.
+- [x] Only Lookup Agent is wired to `check_job_application_status`.
+- [x] Least-autonomy restriction is demonstrated and explained.
+- [x] Risk level is classified using the supplied Low/Medium/High scheme and justified without invented capabilities.
+- [x] Per-request token/cost budget cap is enforced.
+- [x] Oversized request is rejected and the rejection is demonstrated.
+- [x] Grounded-generation cache is keyed by normalized query text.
+- [x] Repeated query demonstrates a cache hit and avoided redundant grounded-generation LLM/tool call with evidence.
+- [x] Cache-key normalization strips leading/trailing whitespace and punctuation and lower-cases, variants of one query share an entry, and no semantic-match claim is made.
 
 ### Submission
 
-- [ ] One public GitHub repository link contains all code, knowledge-base documents, dataset, tests, reports and transcripts.
-- [ ] README begins by identifying the Naukri.com (Recruitment & HR) track.
-- [ ] README documents exact dataset-generation choices.
-- [ ] README confirms zero API keys and zero network access for graded `MOCK_LLM` runs.
-- [ ] README confirms CrewAI telemetry is disabled.
-- [ ] README contains measured similarity values and chosen threshold.
-- [ ] No prohibited non-code/text deliverables are used as submission artefacts.
+- [x] One public GitHub repository link contains all code, knowledge-base documents, dataset, tests, reports and transcripts.
+- [x] README begins by identifying the Naukri.com (Recruitment & HR) track.
+- [x] README documents exact dataset-generation choices.
+- [x] README confirms zero API keys and zero network access for graded `MOCK_LLM` runs.
+- [x] README confirms CrewAI telemetry is disabled.
+- [x] README contains measured similarity values and chosen threshold.
+- [x] No prohibited non-code/text deliverables are used as submission artefacts.
 
 ---
 

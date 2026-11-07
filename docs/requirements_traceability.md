@@ -37,7 +37,7 @@
 
 Submission/README requirements (§1.2, §10 "Submission") → S-01…S-07.
 
-> **Task 15 scope.** The brief titles it "Apply the four-layer AI-governance model" but itself specifies tasks for only **two** layers ("At the Application layer…", "At the Runtime layer…"). The other two layers are not named anywhere in the brief (D1): implement and test exactly those two, and do not invent others. The README governance section will say that the brief's tasks address the Application and Runtime layers.
+> **Task 15 scope.** The brief titles it "Apply the four-layer AI-governance model" but itself specifies tasks for only **two** layers ("At the Application layer…", "At the Runtime layer…"). The other two layers are not named anywhere in the brief: implement and test exactly those two, and do not invent others. The README governance section will say that the brief's tasks address the Application and Runtime layers.
 
 ---
 
@@ -119,7 +119,7 @@ Verification commands use pytest node IDs; `S:` prefix = a script whose output i
 | P4-08 | Demo 2: injected ungrounded claim detected and removed (revision) | 14 | same | `tests/test_review.py` | `pytest tests/test_review.py::test_ungrounded_claim_revised_out` | same | Done |
 | P4-09 | Only Lookup Agent has `check_job_application_status` | 15 | `src/governance/autonomy.py`, `agents.py` | `tests/test_governance_cache.py` | `pytest tests/test_governance_cache.py::test_only_lookup_agent_has_lookup_tool` | `transcripts/governance_autonomy_demo.md` | Done |
 | P4-10 | Restriction demonstrated + one-paragraph explanation of enforcement | 15 | `autonomy.py`, `src/governance/risk_assessment.md` or `README.md` | `tests/test_governance_cache.py` | `pytest tests/test_governance_cache.py::test_other_agents_cannot_invoke_lookup` | same | Done |
-| P4-11 | One explicit Low/Medium/High classification with a one-paragraph justification, using the brief's scheme (Low: summarization/transcription; Medium: code generation/customer-support tickets; High: medical, **hiring decisions**, financial). The system answers support questions and reads a status; it makes no hiring decision, but it is hiring-adjacent — see decision D17 | 15 | `src/governance/risk_assessment.md` | `tests/test_governance_cache.py` | `pytest tests/test_governance_cache.py::test_risk_doc_has_single_classification` (exactly one of Low/Medium/High as the stated classification) + manual review | — | Done |
+| P4-11 | One explicit Low/Medium/High classification with a one-paragraph justification, using the brief's scheme (Low: summarization/transcription; Medium: code generation/customer-support tickets; High: medical, **hiring decisions**, financial). The system reads a candidate's expected salary (financial data) inside a hiring process, so it is classified High; it makes no hiring decision | 15 | `src/governance/risk_assessment.md` | `tests/test_governance_cache.py` | `pytest tests/test_governance_cache.py::test_risk_doc_has_single_classification` (exactly one of Low/Medium/High as the stated classification) + manual review | — | Done |
 | P4-12 | Per-request token/cost budget cap enforced before crew execution | 15 | `src/governance/budget.py`, `pipeline.py` | `tests/test_governance_cache.py` | `pytest tests/test_governance_cache.py::test_budget_checked_before_crew` (crew never constructed on reject) | `transcripts/governance_budget_demo.md` | Done |
 | P4-13 | Oversized request rejected; rejection demonstrated | 15 | `budget.py` | `tests/test_governance_cache.py` | `pytest tests/test_governance_cache.py::test_oversized_request_rejected_structured_error` | same | Done |
 | P4-14 | Grounded-generation cache keyed by normalized query | 16 | `src/cache/grounded_cache.py` | `tests/test_governance_cache.py` | `pytest tests/test_governance_cache.py::test_normalized_key` (case/whitespace/punctuation variants collide; rule detail in P4-16) | `transcripts/cache_demo.md` | Done |
@@ -155,7 +155,7 @@ Every sentence-level obligation in the capstone brief, in order, with the criter
 | B-07 | Explicit governance policy | P4-09…P4-13 |
 | B-08 | Orchestrated with CrewAI | P2-04, P2-05 |
 | B-09 | Deployed behind FastAPI | P3-01…P3-04 |
-| B-10 | Evaluated end to end | P3-07…P3-10; decision D18 (evaluation runs the full pipeline) |
+| B-10 | Evaluated end to end | P3-07…P3-10 (evaluation runs the full pipeline) |
 | B-11 | Standard of "could pass a real production governance review, not a happy-path demo" | P4-09…P4-13, X-03, X-07, X-11, risk assessment doc |
 | B-12 | One deliverable, single public repo | S-01 |
 | B-13 | One link; no per-Part submission | S-01 |
@@ -166,7 +166,7 @@ Every sentence-level obligation in the capstone brief, in order, with the criter
 | B-18 | SentenceTransformers + ChromaDB free and local | P1-10, P1-11 |
 | B-19 | LLM calls of **four** consumers — grounded generation, evaluation judge, CrewAI crew, AutoGen review team — default to deterministic `MOCK_LLM`, zero keys, zero network | X-23, X-11 |
 | B-20 | Graded transcripts use `MOCK_LLM` | X-21, X-31 |
-| B-21 | Real LLM optional behind env flag; all criteria satisfied under mock alone | X-22, decision D8 |
+| B-21 | Real LLM optional behind env flag; all criteria satisfied under mock alone | X-22 |
 | B-22 | Extend `crewai.llms.base_llm.BaseLLM`, no external interception | P2-08 |
 | B-23 | Pitfall 1: don't match template `Observation:` | P2-09 |
 | B-24 | Pitfall 2: don't dispatch by tool-name substring (`rag_lookup`); use declared argument schema | P2-10 |
@@ -177,13 +177,13 @@ Every sentence-level obligation in the capstone brief, in order, with the criter
 | B-29 | Category vocabulary (5 values; each ≥3 records per Task 1) | P1-02 |
 | B-30 | Status vocabulary (5 values; each ≥1 record) | P1-03 |
 | B-31 | 12 required KB topics, ≥12 docs, 2–5 sentences | P1-06, P1-07 |
-| B-32 | Phone number in contact details is fixed-format and demonstrated masked; name, expected salary, background-check results out of scope (not claimed); fabricated examples only for all three | P2-15, X-13, X-25; format decision D2 |
+| B-32 | Phone number in contact details is fixed-format and demonstrated masked; name, expected salary, background-check results out of scope (not claimed); fabricated examples only for all three | P2-15, X-13, X-25 |
 | B-33 | Task 1: seeded deterministic generator, ≥40 records, six fields, salary range with one-sentence reasoning, counts per category/status, flagged % in 10–30, no hand-editing | P1-01…P1-05, X-20 |
 | B-34 | Task 2: ≥12 docs, 2–5 sentences, own words | P1-06, P1-07, X-24 |
 | B-35 | Task 3: both chunkings, local embeddings, separate Chroma collections via `upsert()` | P1-08…P1-11 |
-| B-36 | Task 4: top-k from either collection; context-only generation; similarity as only signal under mock; calibrate with ≥3 in-scope and ≥2 out-of-scope; no untested 0.5/0.6/0.7; README values + threshold; ≥5 in-scope + 1 OOS fallback | P1-12…P1-14, D10 |
+| B-36 | Task 4: top-k from either collection; context-only generation; similarity as only signal under mock; calibrate with ≥3 in-scope and ≥2 out-of-scope; no untested 0.5/0.6/0.7; README values + threshold; ≥5 in-scope + 1 OOS fallback | P1-12…P1-14 |
 | B-37 | Task 5: same ≥5 queries; doc-level P/R with dedup; per-query arithmetic for both; 2–3 sentence numbers-cited recommendation | P1-15…P1-17 |
-| B-38 | Task 6: tool signature, three returned fields, designed score in [0,1] combining flag + normalized recency, exact formula, threshold justified from own distribution | P2-01…P2-03, D3, D4 |
+| B-38 | Task 6: tool signature, three returned fields, designed score in [0,1] combining flag + normalized recency, exact formula, threshold justified from own distribution | P2-01…P2-03 |
 | B-39 | Task 7: ≥3 agents (Retrieval w/ RAG tool, Lookup w/ lookup tool, Composer), `.kickoff()`, both tools invoked on different queries | P2-04…P2-07 |
 | B-40 | Task 8: LangChain session memory; multi-turn transcript; separate fresh-conversation transcript; in-process only; deprecation warning not silenced | P2-12, P2-13, X-26 |
 | B-41 | Task 9: Pydantic model as `response_format`; every response validated in code | P2-14, X-28 |
@@ -192,7 +192,7 @@ Every sentence-level obligation in the capstone brief, in order, with the criter
 | B-44 | Task 12: one JSONL entry per request with trace ID and timing, ELK-style; logged text has no raw masked-PII value; same masking for model and log | P3-05, P3-06, X-29 |
 | B-45 | Task 13: LLM-as-judge under `MOCK_LLM`; 15 queries; ≥1 per KB topic; ≥2 OOS/edge; four scores per query + four averages | P3-07…P3-10, X-32 |
 | B-46 | Task 14: `RoundRobinGroupChat`, `max_turns=2` (or `MaxMessageTermination(3)`), `output_content_type`, `custom_message_types`, verdict fields, draft + original context in, approve-unchanged and revise demos | P4-01…P4-08, X-30 |
-| B-47 | Task 15: only Lookup Agent may call the lookup tool, demonstrated, one-paragraph guard explanation; risk class + one-paragraph justification; runtime per-request budget cap, oversized request rejected | P4-09…P4-13, D17 |
+| B-47 | Task 15: only Lookup Agent may call the lookup tool, demonstrated, one-paragraph guard explanation; risk class + one-paragraph justification; runtime per-request budget cap, oversized request rejected | P4-09…P4-13 |
 | B-48 | Task 16: in-memory cache keyed by normalized query for grounded generation; repeat query → hit, avoids redundant LLM/tool call, before/after evidence | P4-14…P4-16, X-07 |
 | B-49 | Acceptance criteria Parts 1–4 and Submission bullets | §2 (each bullet is an AC row; the requirements spec's §10 bullets are a superset) |
 | B-50 | Repo contains `dataset.py`, KB docs, RAG/crew/review/governance/deployment code, **transcripts demonstrating every task**, README confirming `MOCK_LLM` with zero API keys | S-04, X-21, X-31 |
@@ -227,7 +227,7 @@ These come from the requirements body or architecture and are verifiable, but ha
 | X-19 | `.env.example` has no secrets; no keys/secrets logged (§8.2) | `.env.example`, `logging_config.py` | `tests/test_repo_hygiene.py::test_no_secrets_in_env_example_or_logs` | Done |
 | X-20 | Unique, stable record IDs; `days_since_created` is int in [0,30]; flag is bool; salary in documented range (plan §4.1) | `dataset.py` | `tests/test_dataset.py::test_field_types_and_ranges` | Done |
 | X-21 | Every required transcript exists (§8.4, §9, arch §10): distribution, calibration, RAG demos, P/R, tool invocation, memory, guardrails, WS disconnect, 15-query eval, AutoGen approve/revise, autonomy, budget, cache | `scripts/generate_transcripts.py` | `pytest tests/test_repo_hygiene.py::test_all_required_transcripts_exist_and_nonempty` | Done |
-| X-22 | Real-LLM mode optional only; never required (§1.1; brief: "optionally wired in behind an environment-variable flag") | `settings.py` | default `MOCK_LLM=true`; `MOCK_LLM=false` raises a clear "real LLM path not implemented" error; decision D8 | Done |
+| X-22 | Real-LLM mode optional only; never required (§1.1; brief: "optionally wired in behind an environment-variable flag") | `settings.py` | default `MOCK_LLM=true`; `MOCK_LLM=false` raises a clear "real LLM path not implemented" error | Done |
 | X-23 | One `MOCK_LLM` switch governs all **four** LLM consumers named in the brief: grounded generation, evaluation judge, CrewAI crew, AutoGen review team | `src/llm/mock_llm.py` (shared deterministic core), `mock_crewai_llm.py`, `mock_autogen_client.py`, judge, grounded generation | `tests/test_offline.py::test_all_four_consumers_run_mock_with_sockets_blocked` | Done |
 | X-24 | Originality: dataset, KB, code, analysis authored for this brief; nothing copied from the brief/specs or external sources | `knowledge_base/`, `README.md` | `tests/test_kb.py::test_kb_text_not_copied_from_specs` (no ≥8-word shared run with `specs/*.md`) + README originality statement + manual review | Done |
 | X-25 | Fabricated-only data for candidate name, salary, background-check and phone examples | fixtures, transcripts | `tests/test_repo_hygiene.py::test_phone_fixtures_are_fabricated` (all phone examples from a documented fake-number list) | Done |

@@ -4,7 +4,7 @@
 **Track:** Recruitment & HR  
 **Architecture baseline:** `naukri_capstone_requirements.md`  
 **Execution mode:** Deterministic, local, offline `MOCK_LLM` for all graded demonstrations  
-**Status:** Development architecture specification
+**Status:** Implemented
 
 > **Submission constraint:** The capstone brief explicitly says that no diagrams are required or accepted as submission artefacts. This document therefore describes the architecture using text-only component maps and numbered flows. Do not add image diagrams, screenshots, slide decks, or exported diagrams to the submitted repository. This text document is a development aid.
 
@@ -454,25 +454,25 @@ Implementation notes:
 
 ## 12. Architecture acceptance checklist
 
-- [ ] Every logical component has a clear responsibility and contract.
-- [ ] Data and knowledge layer is separate from orchestration and API.
-- [ ] Both chunking strategies are independently indexed.
-- [ ] Only the selected RAG collection is wired into the production crew.
-- [ ] Retrieval Agent has only the RAG tool.
-- [ ] Lookup Agent alone has the application lookup tool.
-- [ ] Composer has no direct lookup capability.
-- [ ] CrewAI uses a `BaseLLM` subclass for `MOCK_LLM`.
-- [ ] AutoGen team executes in mock mode with registered structured messages.
-- [ ] Guardrails execute before model input and before final output delivery.
-- [ ] Cache is scoped to grounded generation and does not bypass controls.
-- [ ] Cache-key normalization follows the documented lexical rule.
-- [ ] Budget is enforced before crew execution.
-- [ ] API HTTP and WebSocket paths share the same safety and orchestration services.
-- [ ] Phone PII is masked before model input and disk logging.
-- [ ] WebSocket disconnect is handled without server failure.
-- [ ] WebSocket concurrency uses async patterns, and session memory is isolated per connection/session ID.
-- [ ] Each request creates one safe JSONL log event.
-- [ ] All architecture decisions are compatible with zero-key, zero-network graded execution.
+- [x] Every logical component has a clear responsibility and contract.
+- [x] Data and knowledge layer is separate from orchestration and API.
+- [x] Both chunking strategies are independently indexed.
+- [x] Only the selected RAG collection is wired into the production crew.
+- [x] Retrieval Agent has only the RAG tool.
+- [x] Lookup Agent alone has the application lookup tool.
+- [x] Composer has no direct lookup capability.
+- [x] CrewAI uses a `BaseLLM` subclass for `MOCK_LLM`.
+- [x] AutoGen team executes in mock mode with registered structured messages.
+- [x] Guardrails execute before model input and before final output delivery.
+- [x] Cache is scoped to grounded generation and does not bypass controls.
+- [x] Cache-key normalization follows the documented lexical rule.
+- [x] Budget is enforced before crew execution.
+- [x] API HTTP and WebSocket paths share the same safety and orchestration services.
+- [x] Phone PII is masked before model input and disk logging.
+- [x] WebSocket disconnect is handled without server failure.
+- [x] WebSocket concurrency uses async patterns, and session memory is isolated per connection/session ID.
+- [x] Each request creates one safe JSONL log event.
+- [x] All architecture decisions are compatible with zero-key, zero-network graded execution.
 
 ---
 

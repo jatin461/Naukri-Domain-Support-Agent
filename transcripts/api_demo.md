@@ -28,19 +28,19 @@
 
 - add a new document: HTTP 200: `{"doc_id": "added_dress_code_a57e18c5", "chunks_indexed": 1, "collection_count": 41}`
 - question about it: sources=['added_dress_code_a57e18c5', 'remote_work']
-  - answer: Based on Dress Code, Remote Work Eligibility: Employees wear smart casual clothes on weekdays. Formal wear is needed only for client visits. contact are excluded from the arrangement. Eligible employees may work remotely up to three days a week, and each team agrees a common anchor day in the office. A remote arrangement needs an approved home-office setup and a stable internet connection, and it can be withdrawn with two weeks of notice.
+  - answer: Based on Dress Code, Remote Work Eligibility: Employees wear smart casual clothes on weekdays. Formal wear is needed only for client visits. … contact are excluded from the arrangement. Eligible employees may work remotely up to three days a week, and each team agrees a common anchor day in the office. A remote arrangement needs an approved home-office setup and a stable internet connection, and it can be withdrawn with two weeks of notice.
 - try to overwrite a required document: HTTP 409: exists
 - injection inside a document: HTTP 400: injection
 
 ## WebSocket /chat: multi-turn
 
-- connected: `{"type": "session", "session_id": "sess-9b10d0c4e439"}`
+- connected: `{"type": "session", "session_id": "sess-a15847cafc23"}`
 - turn: What is the status of APP-0007?
   - answered: Application APP-0007 is at status Applied with expected salary INR 805,657. Escalation score 0.25 against threshold 0.33: escalation not recommended.
 - turn: and what is its expected salary?
   - answered: Application APP-0007 is at status Applied with expected salary INR 805,657. Escalation score 0.25 against threshold 0.33: escalation not recommended.
 - turn: How long is the probation period?
-  - answered: Based on Probation Period Policy, Notice Period Policy: New hires serve a probation period of six months from the joining date. A review is held at the end of month three and again before month six, and the manager records whether performance targets are being met. Probation can be extended once, by up to three months, if a review shows The standard notice period is 60 days for confirmed employees and 30 days for employees who are still in probation. A reporting manager can approve an early release when the
+  - answered: Based on Probation Period Policy, Notice Period Policy: New hires serve a probation period of six months from the joining date. A review is held at the end of month three and again before month six, and the manager records whether performance targets are being met. Probation can be extended once, by up to three months, if a review shows … The standard notice period is 60 days for confirmed employees and 30 days for employees who are still in probation. A reporting manager can approve an early release when the …
 
 ## WebSocket /chat: a client disconnects mid-conversation, a second client is unaffected
 

@@ -1,6 +1,6 @@
 # Least autonomy: only the Lookup Agent may call `check_job_application_status`
 
-Enforced by `src/governance/autonomy.py`: an allow-list of tools per agent role, checked by `build_agents` before each agent is constructed. See `src/governance/risk_assessment.md` for the explanation and the Medium risk classification.
+Enforced by `src/governance/autonomy.py`: an allow-list of tools per agent role, checked by `build_agents` before each agent is constructed. See `src/governance/risk_assessment.md` for the explanation and the High risk classification.
 
 ## Tool wiring of the crew (inspected from the constructed agents)
 

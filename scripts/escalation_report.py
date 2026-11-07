@@ -52,7 +52,7 @@ def render(c):
     p = c["days_percentiles"]
     L = ["# Escalation score and threshold", "",
          f"Formula: `escalation_score = {c['formula']}`; recommended escalation when score >= **{c['threshold']}**.",
-         "Newer applications score higher (they have waited longest for a first response); the priority flag adds a fixed 0.60.", "",
+         "Newer applications score higher (they are still inside their first-response window, while older ones have already been through recruiter triage); the priority flag adds a fixed 0.60.", "",
          f"Computed from the generated dataset ({c['records']} records, seed {dataset.SEED}):", "",
          f"- days_since_created percentiles (linear interpolation): P20 = {p['p20']:.2f}, P50 = {p['p50']:.2f}, P80 = {p['p80']:.2f}",
          f"- score range over all records: {c['score_min']:.4f} to {c['score_max']:.4f} (inside [0, 1])",

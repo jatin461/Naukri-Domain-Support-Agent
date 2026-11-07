@@ -118,6 +118,31 @@ def test_raw_phone_absent_masked_present(env):
     assert [e["phone_numbers_masked"] for e in lines(log) if e["endpoint"] == "/ask"][:1] == [1]
 
 
+@pytest.mark.ac("P3-05")
+def test_validation_error_entry_logs_measured_timing(env):
+    client, _, _, log = env
+    assert client.post("/ask", json={"title": "wrong body"}).status_code == 422
+    e = lines(log)[-1]
+    assert e["http_status"] == 422 and e["rejection_reason"] == "invalid_request"
+    assert isinstance(e["duration_ms"], float) and e["duration_ms"] > 0  # measured, not a placeholder
+
+
+@pytest.mark.ac("P3-05")
+@pytest.mark.ac("P3-06")
+def test_trace_and_session_ids_are_never_masked(tmp_path):
+    import uuid
+
+    logger = RequestLogger(tmp_path / "ids.jsonl")
+    ids = ["af9876543210ab", "sess-9876543210ab", "0b98765432100c", *(uuid.uuid4().hex for _ in range(2000))]
+    for i in ids:
+        logger.log(trace_id=i, session_id=i, request_text=f"Contact: {RAW}")
+    entries = lines(tmp_path / "ids.jsonl")
+    assert [e["trace_id"] for e in entries] == ids and [e["session_id"] for e in entries] == ids
+    assert all(e["request_text"] == f"Contact: {PHONE_MASK}" for e in entries)  # the real phone is still masked
+    logger.log(trace_id="t", session_id=f"sess {RAW}")  # a phone number typed into a session ID is still masked
+    assert lines(tmp_path / "ids.jsonl")[-1]["session_id"] == f"sess {PHONE_MASK}"
+
+
 @pytest.mark.ac("P3-06")
 def test_masking_happens_before_the_write(tmp_path, monkeypatch):
     logger = RequestLogger(tmp_path / "l.jsonl")

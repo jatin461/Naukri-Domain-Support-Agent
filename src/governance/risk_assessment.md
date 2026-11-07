@@ -12,9 +12,9 @@ Every language-model call in graded runs goes to one deterministic, offline mock
 
 ## Risk classification
 
-**Classification: Medium**
+**Classification: High**
 
-The agent is an employer and candidate support assistant: it answers hiring-policy questions from a fixed 12-document knowledge base and reads one application's status, expected salary and escalation score from a fabricated dataset, which puts it with the customer-support-ticket class of the scheme and above plain summarisation (Low). It is read-only, it does not rank, shortlist, reject or select any candidate, it makes no compensation decision, and the escalation score only routes a case to a human reviewer. Every answer is also checked by a groundedness guard and by an independent two-agent review before it is delivered. The data it touches belongs to the hiring process, which is why it is not Low, but because it takes no consequential hiring decision it is not High. If it were ever changed to rank, score or decide on candidates it would become High and the whole control set would have to be re-assessed.
+The scheme places financial data and hiring decisions in the High class, and this agent touches both: the lookup tool returns a candidate's expected salary, which is personal financial data, and every answer concerns a live hiring process, so the system is classified High even though its records are fabricated and its interface looks like a customer-support assistant. The class is set by the kind of data and process the design handles, not by the test data, so it would stay High with real candidates. The controls are sized for that class: the agent is read-only, it does not rank, shortlist, reject or select any candidate and makes no compensation decision, and the escalation score only routes a case to a human reviewer; only the Lookup Agent can read a record, one application per request, and bulk requests such as "list all salaries" are refused; the phone number is masked before the model, memory or log see it; and every answer passes a groundedness guard and an independent two-agent review before delivery. Connecting a real model or real candidate data would need, in addition, caller authentication so that a salary is shown only to someone entitled to see it.
 
 ## Least autonomy
 

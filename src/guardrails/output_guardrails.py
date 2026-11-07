@@ -3,7 +3,7 @@
 Evidence = text of the grounded retrieval results (+ their document titles) and the facts returned
 by the lookup tool. A draft sentence is "supported" when at least GROUNDING_SUPPORT_THRESHOLD of its
 content words (lower-cased alphanumeric tokens minus a short stop list) occur in the evidence.
-Actions (decision D5):
+Actions:
   refuse  no evidence supports the question at all, yet the draft makes claims -> replaced by the fallback
   flag    some draft sentences are unsupported -> passed on, flagged, for the AutoGen reviewer to revise
   pass    every sentence is supported

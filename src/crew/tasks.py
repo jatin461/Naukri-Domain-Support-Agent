@@ -1,4 +1,4 @@
-"""Per-request task list (decision D6). Task descriptions end with `Question: <text>`."""
+"""Per-request task list. Task descriptions end with `Question: <text>`."""
 from crewai import Task
 
 from src.schemas.crew_response import response_format

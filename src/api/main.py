@@ -4,7 +4,7 @@ HTTP and WebSocket share one request path (src/pipeline.py). The pipeline is blo
 embeddings), so every handler runs it with run_in_threadpool and the event loop stays free for
 other clients. Every HTTP request (including unknown routes, wrong methods and /docs) and every WebSocket
 turn writes exactly one JSONL entry, PII-masked before the write. WebSocket connect/disconnect events are
-not separate entries (decision D11).
+not separate entries.
 """
 import json
 import logging
@@ -122,6 +122,7 @@ def create_app(pipeline=None, log_path=None):
     async def log_unhandled_requests(request: Request, call_next):
         """Writes the one entry for any HTTP request that no endpoint logged itself (unknown route, wrong method, /docs)."""
         t0 = time.perf_counter()
+        request.state.t0 = t0  # read by the validation-error handler so a 422 entry also logs measured timing
         request.state.logged = False  # request.state lives in the ASGI scope, shared with the endpoint and handlers
         status = 500
         try:
@@ -139,8 +140,10 @@ def create_app(pipeline=None, log_path=None):
     @app.exception_handler(RequestValidationError)
     async def validation_error(request: Request, exc: RequestValidationError):
         trace_id = uuid.uuid4().hex
+        t0 = getattr(request.state, "t0", None) or time.perf_counter()
         svc.logger.log(level="WARNING", trace_id=trace_id, endpoint=request.url.path, method=request.method, status="rejected",
-                       http_status=422, rejection_reason="invalid_request", duration_ms=0.0, request_text=str(exc.body)[:500])
+                       http_status=422, rejection_reason="invalid_request", duration_ms=round((time.perf_counter() - t0) * 1000, 3),
+                       request_text=str(exc.body)[:500])
         request.state.logged = True
         detail = [{"loc": [str(x) for x in e["loc"]], "msg": e["msg"]} for e in exc.errors()]  # never echo the input back
         return JSONResponse(status_code=422, content={"trace_id": trace_id, "error": "invalid_request", "detail": detail})

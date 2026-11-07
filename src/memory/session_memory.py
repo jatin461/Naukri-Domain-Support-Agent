@@ -1,4 +1,4 @@
-"""In-process session memory (LangChain InMemoryChatMessageHistory) and the reference resolver (D7).
+"""In-process session memory (LangChain InMemoryChatMessageHistory) and the reference resolver.
 
 History holds only masked user text and the assistant answers. The assistant message carries
 `additional_kwargs` {"record_id", "policy_question"}, which the resolver reads on the next turn:

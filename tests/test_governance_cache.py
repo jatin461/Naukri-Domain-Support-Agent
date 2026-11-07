@@ -81,9 +81,10 @@ def test_lookup_tool_only_runs_on_lookup_routes(pipeline):
 def test_risk_doc_has_single_classification():
     text = DOC.read_text()
     stated = re.findall(r"\*\*Classification: (Low|Medium|High)\*\*", text)
-    assert stated == ["Medium"]
-    para = text.split("**Classification: Medium**", 1)[1].split("\n## ", 1)[0].lower()
-    for needle in ("read-only", "does not rank", "escalation score", "routes a case to a human", "would become high", "customer-support"):
+    assert stated == ["High"]
+    para = text.split("**Classification: High**", 1)[1].split("\n## ", 1)[0].lower()
+    for needle in ("financial data", "hiring", "expected salary", "read-only", "does not rank", "escalation score",
+                   "routes a case to a human", "one application per request"):
         assert needle in para, needle
     for layer in ("Data layer", "Model layer", "Least autonomy", "Runtime budget"):
         assert f"## {layer}" in text, layer

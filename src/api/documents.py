@@ -1,4 +1,4 @@
-"""Additive document indexing for POST /add-document (decision D9).
+"""Additive document indexing for POST /add-document.
 
 New documents are masked and injection-checked like requests, chunked with the production strategy,
 embedded locally and upserted into the production collection. The 12 required documents are never
